@@ -1,0 +1,167 @@
+.card {
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.12);
+  background-color: #fff;
+  .cardContentForm {
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    padding-right: 5px;
+    &::-webkit-scrollbar {
+      position: absolute;
+      right: 0;
+      width: 10px;
+      background-color: #fafafa;
+      border-radius: 10px;
+      width: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #f0f0f0;
+      border-radius: 10px;
+    }
+  }
+  h2 {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 130%;
+    color: #292929;
+    margin-bottom: 15px;
+  }
+  .title {
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%; /* 36.4px */
+    letter-spacing: -1.12px;
+    color: #1f1f1f;
+    margin-bottom: 8px;
+    text-transform: capitalize;
+  }
+  .subtitle {
+    color: #707070;
+    font-feature-settings: "liga" off, "clig" off;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    margin-bottom: 32px;
+    strong {
+      color: #232323;
+      text-transform: capitalize;
+    }
+  }
+  .cardActionsBottom {
+    border-top: 1px solid #e5e7eb;
+    margin-top: 24px;
+    padding: 32px 0px 0px 0px;
+    display: flex;
+    gap: 12px;
+  }
+}
+
+.blocksContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.block {
+  padding: 20px;
+  border-radius: 8px;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  text-align: left;
+  border: 1px solid transparent;
+
+  &:hover:not(:disabled) {
+    background: #fff;
+    border-color: #26246f;
+  }
+  &.disabled {
+    // background: #f0f0f0;
+    // &:hover {
+    //   background: #fafafa;
+    //   img {
+    //     opacity: 1;
+    //   }
+    //   .blockTitle {
+    //     opacity: 1;
+    //   }
+    //   .blockDescription {
+    //     opacity: 1;
+    //   }
+    // }
+    // img {
+    //   opacity: 0.3;
+    // }
+    // .blockTitle {
+    //   opacity: 0.3;
+    // }
+    // .blockDescription {
+    //   opacity: 0.3;
+    // }
+    .grouppedCheckbox {
+      opacity: 0.3;
+    }
+  }
+  &.active {
+    border-color: #26246f;
+    .grouppedCheckbox {
+      background: #26246f;
+      svg {
+        display: block;
+        color: #fff;
+      }
+    }
+  }
+  img {
+    width: 68px;
+    height: 68px;
+  }
+}
+.grouppedCheckbox {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: 1px solid #adadad;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  svg {
+    display: none;
+    width: 16px;
+    height: 16px;
+  }
+}
+.blockTitle {
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+  color: #525252;
+}
+.blockDescription {
+  color: #707070;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 19.6px */
+}
+
+.grouppedCheckboxSelected {
+  border-color: #26246f;
+  background: #26246f;
+  svg {
+    display: block;
+    color: #fff;
+  }
+}
+
+.cardActionsBottomRight {
+  justify-content: flex-end;
+}
