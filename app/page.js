@@ -11,7 +11,7 @@ export default function Page() {
 
   useEffect(() => {
     if (!loading && !user) {
-      router.push("/login"); // ✅ Redirect users without a session to /login
+      router.push("/login");
     }
   }, [user, loading, router]);
 

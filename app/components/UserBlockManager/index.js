@@ -10,8 +10,8 @@ const UserBlockManager = () => {
   const { token, logout } = useContext(AuthContext);
   const [selected, setSelected] = useState([]);
   const [tooltipMessage, setTooltipMessage] = useState("");
-  const [loading, setLoading] = useState(false); // ✅ Loading state
-  const [loadingBlockId, setLoadingBlockId] = useState(null); // ✅ Loading state for remove operation
+  const [loading, setLoading] = useState(false);
+  const [loadingBlockId, setLoadingBlockId] = useState(null);
 
   useEffect(() => {
   }, [userBlocks, predefinedBlocks]);
@@ -31,7 +31,7 @@ const UserBlockManager = () => {
   };
 
   const handleRemove = async (blockId) => {
-    setLoadingBlockId(blockId); // ✅ Show loading spinner for this block
+    setLoadingBlockId(blockId);
     await removeUserBlock(blockId, token);
     await fetchUserBlocks();
     setLoadingBlockId(null);
@@ -39,7 +39,7 @@ const UserBlockManager = () => {
 
   const handleSubmit = async () => {
     if (selected.length === 0) return;
-    setLoading(true); // ✅ Show loading spinner when adding blocks
+    setLoading(true);
     await addUserBlocks(selected, token);
     setSelected([]);
     await fetchUserBlocks();
@@ -61,7 +61,7 @@ const UserBlockManager = () => {
               <button
                 className={styles.deleteButton}
                 onClick={() => handleRemove(block._id)}
-                disabled={loadingBlockId === block._id} // ✅ Disable while removing
+                disabled={loadingBlockId === block._id}
               >
                 {loadingBlockId === block._id ? "Removing..." : "Remove"}
               </button>

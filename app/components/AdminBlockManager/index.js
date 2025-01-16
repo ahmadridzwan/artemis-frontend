@@ -28,12 +28,11 @@ const AdminBlockManager = () => {
       return;
     }
 
-    // ✅ Create FormData for file upload
     const formData = new FormData();
     formData.append("name", blockName);
     formData.append("description", description);
     formData.append("type", type);
-    formData.append("icon", iconFile); // ✅ Attach the file
+    formData.append("icon", iconFile);
 
     const response = await createBlock(formData, token);
 
@@ -76,7 +75,6 @@ const AdminBlockManager = () => {
           <option value="grouped">Grouped</option>
         </select>
 
-        {/* ✅ File Picker for Image Upload */}
         <input type="file" accept="image/*" onChange={handleFileChange} className={styles.fileInput} />
 
         <button type="submit" className={styles.submitButton}>Add Block</button>

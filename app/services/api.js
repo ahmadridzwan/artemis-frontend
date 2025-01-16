@@ -1,6 +1,5 @@
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
-// Helper function to make API requests
 const apiRequest = async (endpoint, method = "GET", body = null, token = null) => {
   try {
     const headers = {

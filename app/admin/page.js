@@ -13,7 +13,7 @@ export default function AdminPage() {
 
   useEffect(() => {
     if (!authLoading && !isAdmin) {
-      router.push("/"); // Redirect non-admins to home
+      router.push("/");
     }
   }, [isAdmin, authLoading, router]);
 

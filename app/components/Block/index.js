@@ -9,10 +9,7 @@ const Block = ({
   onCheck = (value) => {},
   selected = false,
 }) => {
-  //const [selected, setSelected] = useState(defaultSelected);
-
   const handleSelected = () => {
-    //setSelected(!selected);
     onCheck(selected);
     onClick();
   };
