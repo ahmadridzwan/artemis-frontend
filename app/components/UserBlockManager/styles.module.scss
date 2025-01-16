@@ -1,0 +1,103 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.upperGrid, .lowerGrid {
+  display: flex;
+  // grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.blockItem {
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.blockImage {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 5px;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.checkmark {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: green;
+  color: white;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.deleteButton {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  margin-top: 5px;
+  display: none;
+}
+
+.blockItem:hover .deleteButton {
+  display: block;
+}
+
+.submitButton, .deleteButton {
+  background-color: #0070f3;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.submitButton:disabled, .deleteButton:disabled {
+  background-color: #bbb; /* ✅ Make disabled button grey */
+  cursor: not-allowed;
+}
+
+
+
+.logoutButton {
+  background-color: #e74c3c;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px;
+  display: block;
+}
+
+.logoutButton:hover {
+  background-color: #c0392b;
+}
+
+.tooltip {
+  background-color: black;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+}

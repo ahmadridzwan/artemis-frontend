@@ -1,54 +1,34 @@
 "use client";
+import { useContext, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { AuthContext } from "./context/AuthContext";
+import UserBlockManager from "./components/UserBlockManager";
 import styles from "./styles.module.scss";
-import Block from "./components/Block";
-export default function Home() {
-  const data = [
-    {
-      title: "Block 1",
-      description: "FM Companies",
-      type: "groupped",
-      icon: "/icons/ico-org.png",
-      onClick: () => console.log("Block 1 clicked"),
-    },
-    {
-      title: "Academy",
-      type: "groupped",
-      icon: "/icons/ico-academy.png",
-      onClick: () => console.log("Block 2 clicked"),
-    },
-    {
-      title: "Event Companies",
-      description: "Description 3",
-      icon: "/icons/ico-event.png",
-      type: "groupped",
-      onClick: () => console.log("Block 3 clicked"),
-    },
 
-    {
-      title: "Local Clubs",
-      description: "Description 3",
-      icon: "/icons/ico-local-club.png",
-      type: "single",
-      onClick: () => console.log("Block 3 clicked"),
-    },
+export default function Page() {
+  const { user, logout, loading } = useContext(AuthContext);
+  const router = useRouter();
 
-    {
-      title: "Community Groups",
-      description: "Description 3",
-      icon: "/icons/ico-org.png",
-      type: "single",
-      onClick: () => console.log("Block 3 clicked"),
-    },
-  ];
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push("/login"); // ✅ Redirect users without a session to /login
+    }
+  }, [user, loading, router]);
+
+  if (loading) return <p>Loading...</p>;
 
   return (
-    <main className={styles.container}>
-      <div className={styles.main}>
-        {data.map((block, index) => (
-          <Block key={index} {...block} />
-        ))}
-      </div>
-      <button className={styles.btnMain}>Submit</button>
-    </main>
+    <div className={styles.container}>
+      {user ? (
+        <>
+          <h1>Welcome, {user.username}!</h1>
+          <p>Select or edit your blocks below:</p>
+          <UserBlockManager />
+          <button className={styles.logoutButton} onClick={logout}>Logout</button>
+        </>
+      ) : (
+        <p>Redirecting to login...</p>
+      )}
+    </div>
   );
 }

@@ -1,0 +1,80 @@
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.blockList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 16px;
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.blockItem {
+  background: #ffffff;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blockItem:hover {
+  border-color: #0070f3;
+}
+
+.blockItem img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+.blockName {
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.selected {
+  background-color: #0070f3;
+  color: white;
+  border-color: #005bb5;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.submitButton {
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.submitButton:hover {
+  background-color: #005bb5;
+}
+
+.submitButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
